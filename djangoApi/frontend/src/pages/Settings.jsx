@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from "../components/header";
 
 const Settings = () => {
     return (
-        <div>
+        <div className="my-container">
+            <Header />
             <h3>Settings</h3>
         </div>
     );

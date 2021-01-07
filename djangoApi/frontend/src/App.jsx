@@ -5,10 +5,12 @@ import {Auth, Settings, Statistics} from './pages'
 import Header from './components/header'
 import './App.css';
 
+
+let user = true;
+
 function App() {
   return (
-        <div className="my-container">
-            <Header />
+        <div>
             <Switch>
                 <Route
                     exact

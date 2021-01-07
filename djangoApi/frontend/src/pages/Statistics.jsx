@@ -1,8 +1,10 @@
 import React from 'react';
+import Header from "../components/header";
 
 const Statistics = () => {
     return (
-        <div>
+        <div className="my-container">
+            <Header />
             statistics
         </div>
     );
