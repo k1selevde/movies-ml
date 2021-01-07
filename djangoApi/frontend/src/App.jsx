@@ -2,27 +2,30 @@ import {Route, Redirect, Switch} from "react-router-dom"
 
 import logo from './logo.svg';
 import {Auth, Settings, Statistics} from './pages'
-import Header from './components/header'
 import './App.css';
+import PrivateRoute from "./components/PrivateRoute";
+import { useAuth } from "./context/AuthContext";
 
-
-let user = true;
 
 function App() {
-  return (
+    const { isAuth } = useAuth();
+    return (
         <div>
             <Switch>
                 <Route
                     exact
                     path="/signin"
-                    component={Auth}
+                    render={() => {
+                        console.log(isAuth)
+                       return (isAuth ? <Redirect to="/" /> : <Auth />)
+                    }}
                 />
-                <Route
+                <PrivateRoute
                     exact
                     path="/settings"
                     component={Settings}
                 />
-                <Route
+                <PrivateRoute
                     exact
                     path="/"
                     component={Statistics}

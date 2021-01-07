@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {validateAuth} from "../utils/helpers";
+import { useAuth } from "../context/AuthContext";
 
 const Auth = () => {
+    const { signin, serverError } = useAuth();
     const [authData, setAuthData] = useState({username: '', password: ''})
-    const [erorr, setError] = useState('')
+    const [error, setError] = useState('')
 
     const changeHandler = (e) => {
         const fieldName = e.target.name
@@ -21,6 +23,7 @@ const Auth = () => {
         if (!Boolean(currentError)) {
             setError('')
             console.log('Send data')
+            signin()
         } else {
             setError(currentError)
             console.log('current error', currentError)
@@ -32,7 +35,7 @@ const Auth = () => {
         <div className="auth__outer">
             <div className="form__container">
                 <h3 className="form__title">LOGIN</h3>
-                <p className="form__error">{erorr}</p>
+                <p className="form__error">{error}</p>
                 <form onSubmit={submitHandler} className="form">
                     <div className="form__group">
                         <label
@@ -65,7 +68,7 @@ const Auth = () => {
                         />
                     </div>
                     <div className="form__btn--wrap">
-                        <button type="submit" className="form__btn">Submit</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>

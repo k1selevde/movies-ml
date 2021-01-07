@@ -1,0 +1,19 @@
+.settings {
+  &__body {
+    margin: 0 auto;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+  &__title {
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 40px;
+  }
+  &__senders {
+    display: flex;
+    align-items: center;
+    margin-top: 90px;
+    justify-content: space-between;
+  }
+}
