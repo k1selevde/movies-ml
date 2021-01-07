@@ -17,8 +17,15 @@ const Auth = () => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        let error = validateAuth(authData.password, authData.username)
-        console.log(authData.password, authData.username)
+        let currentError = (validateAuth(authData.password, authData.username))
+        if (!Boolean(currentError)) {
+            setError('')
+            console.log('Send data')
+        } else {
+            setError(currentError)
+            console.log('current error', currentError)
+        }
+
     }
 
     return (
