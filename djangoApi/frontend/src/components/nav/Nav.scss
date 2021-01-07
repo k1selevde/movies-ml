@@ -1,0 +1,10 @@
+.nav {
+  &__wrap {
+    display: flex;
+    padding: 50px;
+  }
+
+  &__item {
+    margin-right: 40px;
+  }
+}
