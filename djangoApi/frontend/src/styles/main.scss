@@ -1,10 +1,11 @@
 @import "~reset-css";
 
 @import "auth.scss";
+@import "settings.scss";
+@import "statistics.scss";
 
 
 body, html {
-
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -21,6 +22,4 @@ code {
 .my-container {
   margin: 0 auto;
   max-width: 1200px;
-  background: yellow;
-  border: 1px solid black;
 }

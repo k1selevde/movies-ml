@@ -14,6 +14,9 @@ const User = () => {
             <div className="user__avatar">
                 <UserSvg />
             </div>
+            <div className="user__logout">
+                <p className="user__logout--text">ВЫЙТИ</p>
+            </div>
         </div>
     );
 };

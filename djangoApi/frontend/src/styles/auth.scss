@@ -58,15 +58,16 @@
     }
     color: white;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 13px;
     text-transform: uppercase;
     cursor: pointer;
     margin: 15px auto;
     background: #1e347b;
     border-radius: 10px;
-    padding: 5px 8px;
+    padding: 10px 15px;
     border: none;
     outline: none;
+    transiton: all .1s ease;
     &:hover {
       opacity: 0.8;
     }
