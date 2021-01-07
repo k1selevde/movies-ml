@@ -1,13 +1,12 @@
 .settings {
   &__body {
-    margin: 0 auto;
+    margin: 0 auto 100px auto;
     display: flex;
     justify-content: left;
     flex-direction: column;
   }
   &__title {
-    font-weight: 700;
-    font-size: 17px;
+    margin-top: 30px;
     margin-bottom: 40px;
   }
   &__senders {

@@ -11,7 +11,6 @@ const User = () => {
     const { logout } = useAuth()
 
     const handleLogout = () => {
-        console.log('log out')
         logout()
     }
     return (

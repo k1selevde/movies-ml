@@ -2,7 +2,7 @@
 {
     const toggleNavSidebar = document.getElementById('toggle-nav-sidebar');
     if (toggleNavSidebar !== null) {
-        const navLinks = document.querySelectorAll('#nav-sidebar a');
+        const navLinks = document.querySelectorAll('#Nav-sidebar a');
         function disableNavLinkTabbing() {
             for (const navLink of navLinks) {
                 navLink.tabIndex = -1;

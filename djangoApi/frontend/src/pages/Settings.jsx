@@ -9,7 +9,7 @@ const Settings = () => {
         <div className="my-container">
             <Header />
             <section className="settings__body">
-                <h3 className="settings__title">Settings</h3>
+                <h3 className="settings__title">Настройки</h3>
                 <MessagesMailer/>
                 <div className="settings__senders">
                     <FrequencySend

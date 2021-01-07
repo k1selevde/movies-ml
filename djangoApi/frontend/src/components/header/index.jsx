@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Nav from '../nav/index'
+import Nav from '../Nav/index'
 import User from '../User/index'
 
 import './Header.scss'

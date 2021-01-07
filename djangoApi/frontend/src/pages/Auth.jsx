@@ -35,7 +35,7 @@ const Auth = () => {
         <div className="auth__outer">
             <div className="form__container">
                 <h3 className="form__title">LOGIN</h3>
-                <p className="form__error">{error}</p>
+                <div className="form__error">{error}</div>
                 <form onSubmit={submitHandler} className="form">
                     <div className="form__group">
                         <label
