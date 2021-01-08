@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react';
+import React from 'react';
 
 
 import VisitSchedule from '../components/VisitSchedule'
@@ -11,11 +11,6 @@ import TableStatistic from "../components/TableStatistic";
 
 const Statistics = () => {
 
-
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <>

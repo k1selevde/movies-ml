@@ -10,20 +10,20 @@ const Auth = () => {
     const changeHandler = (e) => {
         const fieldName = e.target.name
         const fieldValue = e.target.value
-        console.log(fieldValue)
         setAuthData(prev => ({
             ...prev,
             [fieldName]: fieldValue
         }))
     }
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault()
         let currentError = (validateAuth(authData.password, authData.username))
         if (!Boolean(currentError)) {
             setError('')
             console.log('Send data')
-            signin()
+            await signin()
+            localStorage.setItem('isAuth', true)
         } else {
             setError(currentError)
             console.log('current error', currentError)

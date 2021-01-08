@@ -10,3 +10,10 @@ export const validateAuth = (password, username) => {
     return ''
 }
 
+
+export const checkActive = (match, location) => {
+    if(!location) return false;
+    const {pathname} = location;
+    console.log(pathname);
+    return pathname === "/";
+}

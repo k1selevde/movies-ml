@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
+import axios from '../../utils/axiosCore'
 
 import './FrequencySend.scss'
 
@@ -8,13 +10,32 @@ const FrequencySend = ({object, defValue}) => {
     const [localDefValue, setLocalDefValue] = useState(defValue)
     const [curValue,setCurrentValue ] = useState(defValue)
 
+    useEffect(() => {
+        axios.get('/api/freq')
+            .then(res => {
+                setLocalDefValue(res.data.value)
+            })
+            .catch((e) => {
+                console.log('freq',e)
+            })
+    }, [])
+
     const toodlerHandler = (e) => {
         setCurrentValue(e.target.value)
     }
-    const saveHandler = () => {
-        alert('Изменения сохранены')
-        setLocalDefValue(curValue)
+
+    const saveHandler = async () => {
+        await axios.post('/api/freq', {}, {})
+            .then(() => {
+                setLocalDefValue(curValue)
+                alert('Изменения сохранены')
+            })
+            .catch((e) => {
+                alert(`Ошибка на сервере.Попробуйте позже. ${e}`)
+            })
     }
+
+
     return (
         <div>
             <div className="freqSend__top">

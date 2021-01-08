@@ -8,14 +8,18 @@ export function useAuth() {
 }
 
 export function AuthProvider({children}) {
-    const [isAuth, setAuth] = useState(false);
+
+    const defAuth = Boolean(localStorage.getItem('isAuth')) ? localStorage.getItem('isAuth') : false;
+
+    const [isAuth, setAuth] = useState(defAuth);
     const [serverError, setError] = useState('');
 
     async function signin(email,password) {
         await setAuth(true)
     }
 
-    function logout() {
+    async function logout() {
+        await localStorage.removeItem('isAuth')
         setAuth(false)
     }
 

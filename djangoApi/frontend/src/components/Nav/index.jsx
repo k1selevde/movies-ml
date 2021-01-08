@@ -1,6 +1,8 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
 
+import { checkActive } from "../../utils/helpers";
+
 import'./Nav.scss'
 
 const Nav = () => {
@@ -9,7 +11,7 @@ const Nav = () => {
             <div className="nav__wrap">
                 <div className="nav__item">
                     <NavLink
-                        strict
+                        isActive={checkActive}
                         activeClassName='nav__link--active'
                         className="nav__link"
                         to="/"
@@ -19,7 +21,6 @@ const Nav = () => {
                 </div>
                 <div className="nav__item">
                     <NavLink
-                        strict
                         activeClassName='nav__link--active'
                         className="nav__link"
                         to="/settings"

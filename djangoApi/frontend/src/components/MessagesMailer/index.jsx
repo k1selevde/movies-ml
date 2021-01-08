@@ -1,15 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+
+import axios from '../../utils/axiosCore'
 
 import './MessagesMailer.scss'
 
-const MessagesMailer = ({defValue ='ewrwerwerwerwrewer'}) => {
+const MessagesMailer = ({defValue ='Мое сообщение кинолюбителям'}) => {
 
     const [localDefValue, setLocalDefValue] = useState(defValue)
     const [curValue, setCurValue] = useState(defValue)
+    // const [serverError, setServerError] = useState('')
 
-    const handleSubmit = (e) => {
-        alert(`Изменения сохранены, ${curValue}`)
-        setLocalDefValue(curValue)
+
+    useEffect(() => {
+        axios.get('/api/message')
+            .then(res => {
+                setLocalDefValue(res.data.value)
+            })
+            .catch((e) => {
+                alert(e)
+            })
+        }, [])
+
+
+    const handleSubmit = async () => {
+        await axios.post('/api/message', {value: curValue}, {})
+            .then(() => {
+                setLocalDefValue(curValue)
+                alert('Изменения успешно сохранены')
+            })
+            .catch((e) => alert('Ошибка на сервере. Попробуйте позже'))
+
+
     }
 
     const handleChange = (e) => {
@@ -38,7 +59,6 @@ const MessagesMailer = ({defValue ='ewrwerwerwerwrewer'}) => {
                     cols="30"
                     rows="10"
                 >
-
                 </textarea>
             </div>
         </div>
