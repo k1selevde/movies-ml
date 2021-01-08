@@ -1,11 +1,20 @@
 .settings {
   &__body {
-    margin: 0 auto 100px auto;
+    background-image: linear-gradient(to right bottom, #2f80ed, #4583e8, #5586e3, #6289dd, #6d8cd8, #8095d9, #919fdb, #a0a9dc, #babde4, #d3d2ed, #eae8f6, #ffffff);
+    margin: 0 auto;
     display: flex;
     justify-content: left;
     flex-direction: column;
+    padding-bottom: 150px;
+    min-height: calc(100vh - 116px)
+  }
+  &__container {
+    width: 1240px;
+    margin: 0 auto;
   }
   &__title {
+    font-weight: 700;
+    font-size: 22px;
     margin-top: 30px;
     margin-bottom: 40px;
   }

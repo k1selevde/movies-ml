@@ -1,0 +1,43 @@
+.freqSend {
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__middle {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    p {
+      margin-left: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+  }
+
+  &__btn {
+    margin-left: 20px;
+  }
+
+  &__result{
+    border: 1px solid black;
+    min-width: 40px;
+    min-height: 30px;
+    overflow: hidden;
+    padding: 6px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    div {
+      font-weight: 600;
+    }
+  }
+
+  &__toddler {
+    margin-top: 40px;
+  }
+}

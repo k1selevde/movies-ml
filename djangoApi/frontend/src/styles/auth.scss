@@ -1,6 +1,5 @@
 .auth {
   &__outer {
-    background: #3c763d;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -11,6 +10,7 @@
     align-content: center;
     justify-content: center;
     overflow: auto;
+    background-image: linear-gradient(to right bottom, #2f80ed, #4583e8, #5586e3, #6289dd, #6d8cd8, #8095d9, #919fdb, #a0a9dc, #babde4, #d3d2ed, #eae8f6, #ffffff);
   }
 }
 
@@ -55,6 +55,7 @@
   &__btn {
     &--wrap {
       display: flex;
+      justify-content: center;
     }
     color: white;
     font-weight: 500;

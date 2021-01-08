@@ -7,10 +7,12 @@ import './Header.scss'
 
 const Header = () => {
     return (
-        <div className="my-header__wrap">
-            <div className="my-header">
-                <Nav/>
-                <User/>
+        <div className="my-container">
+            <div className="my-header__wrap">
+                <div className="my-header">
+                    <Nav/>
+                    <User/>
+                </div>
             </div>
         </div>
     );

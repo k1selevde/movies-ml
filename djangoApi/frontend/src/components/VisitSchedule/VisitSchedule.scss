@@ -1,0 +1,18 @@
+.visitSchedule {
+  &__wrap {
+
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 55px;
+  }
+  &__block {
+    background: white;
+    margin-top: 20px;
+    width: 900px;
+    min-height: 470px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px -8px #000000;
+  }
+}
