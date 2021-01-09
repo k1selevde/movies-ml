@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'djangoApi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'movies-ml',
-        'USER': 'postgres',
-        'PASSWORD': '12345',
-        'HOST': '127.0.0.1',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ml',
+        'USER': 'ml',
+        'PASSWORD': '7x2RTMJ0qItuGWMepneI',
+        'HOST': '79.137.2.227',
         'PORT': '5432',
     }
 }
