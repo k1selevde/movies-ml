@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 
 import axios from '../../utils/axiosCore'
+import { getCurrentDayStr } from "../../utils/helpers";
 
 import './FrequencySend.scss'
+
+
 
 
 const FrequencySend = ({object, defValue}) => {
@@ -48,13 +51,15 @@ const FrequencySend = ({object, defValue}) => {
                     Сохранить</button>
             </div>
             <div className="freqSend__middle">
+                <p className="freqSend__middle--left">1 раз в </p>
                 <div className="freqSend__result">
                     <div>{curValue}</div>
                 </div>
-                <p>раз / мин</p>
+                <p>{getCurrentDayStr(curValue)}</p>
             </div>
             <div>
                 <input
+                    max={50}
                     onChange={toodlerHandler}
                     type="range"
                     className="form-control-range freqSend__toddler"
