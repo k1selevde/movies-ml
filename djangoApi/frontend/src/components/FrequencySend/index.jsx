@@ -8,29 +8,36 @@ import './FrequencySend.scss'
 
 
 
-const FrequencySend = ({object, defValue}) => {
+const FrequencySend = ({object, type}) => {
 
-    const [localDefValue, setLocalDefValue] = useState(defValue)
-    const [curValue,setCurrentValue ] = useState(defValue)
+    const [curValue,setCurrentValue] = useState(0)
 
-    useEffect(() => {
-        axios.get('/api/freq')
-            .then(res => {
-                setLocalDefValue(res.data.value)
-            })
-            .catch((e) => {
-                console.log('freq',e)
-            })
-    }, [])
+
 
     const toodlerHandler = (e) => {
         setCurrentValue(e.target.value)
     }
 
+
+    useEffect(() => {
+        axios.get(`/api/freq/${type}/${curValue}/`)
+            .then(res => {
+                setCurrentValue(res.data)
+                // console.log('res frequency :', res)
+            })
+            .catch((e) => {
+                console.log('freq get:  ', e)
+                alert(`Ошибка на сервере.Попробуйте позже. ${e}`)
+            })
+    }, [])
+
+
+
+
     const saveHandler = async () => {
-        await axios.post('/api/freq', {}, {})
+        await axios.post(`/api/freq/${type}/${curValue}/`, {}, {})
             .then(() => {
-                setLocalDefValue(curValue)
+                setCurrentValue(curValue)
                 alert('Изменения сохранены')
             })
             .catch((e) => {
@@ -44,7 +51,6 @@ const FrequencySend = ({object, defValue}) => {
             <div className="freqSend__top">
                 <h4 className="freqSend__title">Частота отправки на {object}</h4>
                 <button
-                    disabled={curValue == localDefValue}
                     onClick={saveHandler}
                     className="btn btn-success freqSend__btn"
                 >
@@ -64,7 +70,6 @@ const FrequencySend = ({object, defValue}) => {
                     type="range"
                     className="form-control-range freqSend__toddler"
                     id="formControlRange"
-                    defaultValue={localDefValue}
                 />
             </div>
         </div>

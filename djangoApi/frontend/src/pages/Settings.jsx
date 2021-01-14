@@ -11,15 +11,17 @@ const Settings = () => {
             <section className="settings__body">
                 <div className="settings__container">
                     <h3 className="settings__title">Настройки</h3>
-                    <MessagesMailer/>
+                    <MessagesMailer />
                     <div className="settings__senders">
                         <FrequencySend
                             object={"телефон"}
-                            defValue={'20'}
+                            type={"phone"}
+                            defValue={"20"}
                         />
                         <FrequencySend
                             object={"почту"}
-                            defValue={'40'}
+                            type={"mail"}
+                            defValue={"10"}
                         />
                     </div>
                 </div>

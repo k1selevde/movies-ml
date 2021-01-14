@@ -4,17 +4,19 @@ import axios from '../../utils/axiosCore'
 
 import './MessagesMailer.scss'
 
-const MessagesMailer = ({defValue ='Мое сообщение кинолюбителям'}) => {
+const MessagesMailer = () => {
 
-    const [localDefValue, setLocalDefValue] = useState(defValue)
-    const [curValue, setCurValue] = useState(defValue)
+    // const [localDefValue, setLocalDefValue] = useState('')
+    const [curValue, setCurValue] = useState('')
     // const [serverError, setServerError] = useState('')
+
 
 
     useEffect(() => {
         axios.get('/api/message')
             .then(res => {
-                setLocalDefValue(res.data.value)
+                console.log(`res get message`, res.data)
+                setCurValue(res.data)
             })
             .catch((e) => {
                 alert(e)
@@ -23,18 +25,21 @@ const MessagesMailer = ({defValue ='Мое сообщение кинолюбит
 
 
     const handleSubmit = async () => {
-        await axios.post('/api/message', {value: curValue}, {})
-            .then(() => {
-                setLocalDefValue(curValue)
+        await axios.post('/api/message/', {value: curValue}, {})
+            .then((res) => {
+                console.log('RES MESSAGE POST, SAVE: ', JSON.parse(res.data).value)
+                setCurValue(JSON.parse(res.data).value)
                 alert('Изменения успешно сохранены')
             })
-            .catch((e) => alert('Ошибка на сервере. Попробуйте позже'))
+            .catch((e) => {
+                console.log(e)
+                alert('Ошибка на сервере. Попробуйте позже')
+            })
 
 
     }
 
     const handleChange = (e) => {
-        console.log(e.target.value)
         setCurValue(e.target.value)
     }
 
@@ -45,13 +50,13 @@ const MessagesMailer = ({defValue ='Мое сообщение кинолюбит
                 <button
                     onClick={handleSubmit}
                     className="btn btn-success"
-                    disabled={localDefValue == curValue}
+                    // disabled={localDefValue == curValue}
                 >Сохранить</button>
             </div>
             <div className="messagesMailer__wrap">
                 <textarea
                     onChange={handleChange}
-                    defaultValue={localDefValue}
+                    value={curValue}
                     placeholder="Введите новое сообщение"
                     className="messagesMailer__textarea"
                     name=""

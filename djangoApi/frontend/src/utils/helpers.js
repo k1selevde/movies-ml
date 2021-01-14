@@ -27,3 +27,17 @@ export const getCurrentDayStr = (day) => {
         return 'дней'
     }
 }
+
+
+// labels for visit table
+
+export const generateLabelsForTable = (count) => {
+    return new Array(count).fill(0).map((_,i) => String("0" + (i+1)).slice(-2))
+}
+
+
+
+
+
+
+

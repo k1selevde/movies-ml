@@ -1,7 +1,7 @@
 import {Route, Redirect, Switch} from "react-router-dom"
 
 import logo from './logo.svg';
-import {Auth, Settings, Statistics} from './pages'
+import {Auth, Settings, Statistics, AnaliticsMl} from './pages'
 import './App.css';
 import PrivateRoute from "./components/PrivateRoute";
 import { useAuth } from "./context/AuthContext";
@@ -29,6 +29,11 @@ function App() {
                     exact
                     path="/"
                     component={Statistics}
+                />
+                <PrivateRoute
+                    exact
+                    path="/analitics"
+                    component={AnaliticsMl}
                 />
             </Switch>
         </div>

@@ -1,18 +1,44 @@
 .visitSchedule {
+  width: min-content;
   &__wrap {
 
   }
+
+  &__top {
+    margin-top: 25px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    &__spinner {
+      margin-left: 35px;
+    }
+  }
+  &__dropdown {
+    outline: none;
+    min-width: 345px;
+    &__year {
+      outline: none;
+      margin-left: 10px;
+    }
+    &__month {
+      outline: none;
+    }
+  }
+
   &__title {
     font-size: 18px;
     font-weight: 600;
     margin-top: 55px;
   }
   &__block {
+    overflow: hidden;
     background: white;
     margin-top: 20px;
-    width: 900px;
+    width: min-content;
+    min-width: 900px;
     min-height: 470px;
     border-radius: 15px;
+    padding: 20px;
     box-shadow: 5px 5px 10px -8px #000000;
   }
 }

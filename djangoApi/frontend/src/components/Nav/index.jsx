@@ -28,6 +28,15 @@ const Nav = () => {
                         Настройки
                     </NavLink>
                 </div>
+                <div className="nav__item">
+                    <NavLink
+                        activeClassName='nav__link--active'
+                        className="nav__link"
+                        to="/analitics"
+                    >
+                        Аналитика ML
+                    </NavLink>
+                </div>
             </div>
         </div>
     );
