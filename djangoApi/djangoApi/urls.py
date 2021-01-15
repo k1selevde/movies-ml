@@ -19,16 +19,17 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from backend.views import index, AuthView, TableView, VisitView, MessageView, FreqView
-
+from backend.views import index, AuthView, TableView, VisitView, MessageView, FreqView, CinemasView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/visit/', VisitView.as_view()),
+    path('api/visit/<int:hall>/<str:year>/<str:month>/<int:count>/', VisitView.as_view()),
+    path('api/cinemas/', CinemasView.as_view()),
     path('api/message/', MessageView.as_view()),
-    path('api/freq/', FreqView.as_view()),
+    path('api/freq/<str:type>/<int:count>/', FreqView.as_view()),
     path('api/table/', TableView.as_view()),
     path('', index),
 ]
+
 
