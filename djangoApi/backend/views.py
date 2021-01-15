@@ -7,7 +7,7 @@ from django.http import HttpResponse
 # Create your views here.
 import json
 from django.db.models import DateTimeField, Count
-from .models import Movieorderitems, Cinemas, Recsettings
+from .models import Movieorderitems, Cinemas, Recsettings, Recommendations, Movies
 
 
 
@@ -15,6 +15,32 @@ from .models import Movieorderitems, Cinemas, Recsettings
 def index(request):
     return render(request, 'index.html', {})
 
+class RecommendationsView(APIView):
+    def get(self, request):
+        data = Recommendations.objects.values_list('movieid', flat=True)
+        id__arr = list(data)
+        set__arr = list(set(id__arr))
+        count__dict = {}
+        # for i in range(id__arr):
+        countKeys = []
+        # response__arr = dict.fromkeys(['a', 'b'], 100)
+        for i in range(len(set__arr)):
+            countKeys.append(id__arr.count(set__arr[i]))
+
+
+        print('countKeys', countKeys)
+        print('len data',len(id__arr))
+        print('count element 56:', id__arr.count(56))
+        print('len set data',len(set__arr))
+        response__id__counts = dict(zip(set__arr, countKeys))
+        print('response__id__counts', response__id__counts)
+        movies__res = []
+        for i in range(len(set__arr)):
+            movies__res.append(Movies.objects.filter(id=set__arr[i]).values())
+            # movieIn = dict(Movies.objects.filter(id=set__arr[i]).values())
+            # print('data db:', movieIn)
+
+        return Response({'rec': response__id__counts, 'movies': movies__res})
 
 class TableView(APIView):
     def get(self, request):

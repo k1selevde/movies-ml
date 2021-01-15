@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from backend.views import index, AuthView, TableView, VisitView, MessageView, FreqView, CinemasView
+from backend.views import index, AuthView, TableView, VisitView, MessageView, FreqView, CinemasView, RecommendationsView
 
 
 urlpatterns = [
@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/message/', MessageView.as_view()),
     path('api/freq/<str:type>/<int:count>/', FreqView.as_view()),
     path('api/table/', TableView.as_view()),
+    path('api/rec/', RecommendationsView.as_view()),
     path('', index),
 ]
 

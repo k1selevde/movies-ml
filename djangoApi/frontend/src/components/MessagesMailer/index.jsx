@@ -15,7 +15,6 @@ const MessagesMailer = () => {
     useEffect(() => {
         axios.get('/api/message')
             .then(res => {
-                console.log(`res get message`, res.data)
                 setCurValue(res.data)
             })
             .catch((e) => {
@@ -27,7 +26,6 @@ const MessagesMailer = () => {
     const handleSubmit = async () => {
         await axios.post('/api/message/', {value: curValue}, {})
             .then((res) => {
-                console.log('RES MESSAGE POST, SAVE: ', JSON.parse(res.data).value)
                 setCurValue(JSON.parse(res.data).value)
                 alert('Изменения успешно сохранены')
             })
