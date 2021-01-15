@@ -21,24 +21,14 @@ class RecommendationsView(APIView):
         id__arr = list(data)
         set__arr = list(set(id__arr))
         count__dict = {}
-        # for i in range(id__arr):
         countKeys = []
-        # response__arr = dict.fromkeys(['a', 'b'], 100)
         for i in range(len(set__arr)):
             countKeys.append(id__arr.count(set__arr[i]))
 
-
-        print('countKeys', countKeys)
-        print('len data',len(id__arr))
-        print('count element 56:', id__arr.count(56))
-        print('len set data',len(set__arr))
         response__id__counts = dict(zip(set__arr, countKeys))
-        print('response__id__counts', response__id__counts)
         movies__res = []
         for i in range(len(set__arr)):
             movies__res.append(Movies.objects.filter(id=set__arr[i]).values())
-            # movieIn = dict(Movies.objects.filter(id=set__arr[i]).values())
-            # print('data db:', movieIn)
 
         return Response({'rec': response__id__counts, 'movies': movies__res})
 
@@ -81,13 +71,13 @@ class MessageView(APIView):
 class VisitView(APIView):
     def get(self, requiest, hall, month, year, count):
         res = []
-        print('data : {} - {}; hall - {}; count - {}'.format(year, month, hall, count))
+        # print('data : {} - {}; hall - {}; count - {}'.format(year, month, hall, count))
         for i in range(count-1):
             first_d = str(i+1).zfill(2)
             second_d = str(i+2).zfill(2)
             res.append(Movieorderitems.objects.filter(createdat__range=('{}-{}-{}'.format(year, month, first_d), '{}-{}-{}'.format(year, month, second_d)), hallid=hall).count())
         # print('data : {} - {}; hall - {}; count - {}'.format(year, month, hall, count))
-        print('res : ',res)
+        # print('res : ',res)
         return Response({'visit': res})
 
 
@@ -109,7 +99,7 @@ class FreqView(APIView):
         return Response({'error'})
 
     def post(self, request, type, count):
-        print('type :', type)
+        # print('type :', type)
         object = Recsettings.objects.all().first()
         if (type == 'phone'):
             # print('Real phone :', count)
@@ -119,5 +109,5 @@ class FreqView(APIView):
             object.emailfreq = count
 
         object.save()
-        print('first in SETTINGS', object)
+        # print('first in SETTINGS', object)
         return Response({'success'})
