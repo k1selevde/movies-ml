@@ -119,7 +119,6 @@ const VisitSchedule = () => {
                 .then((res) => {
                     setVisitData(res.data.visit)
                     setLoadingVisitData(false)
-                    console.log('OKEY visit data : ', res.data.visit)
                 })
                 .catch((e) => {
                     console.log('Server bad visit request', e)
@@ -136,7 +135,6 @@ const VisitSchedule = () => {
         console.log('cinemas request start')
         await axios.get(`/api/cinemas/`)
             .then((res) => {
-                console.log('GOOOOD cinemas', res.data[0].fields.hallid)
                 setCinemas(res.data)
             })
             .catch((e) => {
@@ -161,10 +159,9 @@ const VisitSchedule = () => {
                         <option value="default" selected disabled hidden>Выберите кинотеатр</option>
                         {
                             cinemas && cinemas.map((cinema) => {
-                                let value = `${cinema.fields.cityname}: ${cinema.fields.name}`
                                 let hallid = cinema.fields.hallid
                                 return (
-                                    <option value={hallid}>{value}</option>
+                                    <option value={hallid}>{hallid}</option>
                                 )
                             })
                         }
