@@ -5,47 +5,6 @@ import cn from 'classnames'
 
 import Header from "../components/header";
 
-// test data
-
-const testUserList = [
-    {id: '123213411', some: 'any'},
-    {id: '123213412', some: 'any'},
-    {id: '123213413', some: 'any'},
-    {id: '123213414', some: 'any'},
-    {id: '123213415', some: 'any'},
-    {id: '123213416', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213412', some: 'any'},
-    {id: '1232134217', some: 'any'},
-    {id: '13123123', some: 'any'},
-    {id: '123цук7', some: 'any'},
-    {id: '123324417', some: 'any'},
-    {id: '1232цу417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '12321кцу417', some: 'any'},
-    {id: '1232134кцу7', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'},
-    {id: '123213417', some: 'any'}
-]
-
-
 const UserItem = ({curUser, user, clickHandler}) => {
     return (
         <div
@@ -74,16 +33,6 @@ const AnaliticsMl = () => {
         console.log(`Click : ${user.id}`)
         setCurrentUser(user)
     }
-
-    useEffect(() => {
-        // get user list
-    }, [])
-
-
-    // current user change
-    useEffect(() => {
-        // get new user data
-    }, [currentUser.id])
 
 
     return (

@@ -209,8 +209,6 @@ const VisitSchedule = () => {
 
                     </select>
 
-
-
                 </div>
             </div>
 

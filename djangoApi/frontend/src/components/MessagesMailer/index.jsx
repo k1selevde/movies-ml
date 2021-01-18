@@ -6,9 +6,7 @@ import './MessagesMailer.scss'
 
 const MessagesMailer = () => {
 
-    // const [localDefValue, setLocalDefValue] = useState('')
     const [curValue, setCurValue] = useState('')
-    // const [serverError, setServerError] = useState('')
 
 
 

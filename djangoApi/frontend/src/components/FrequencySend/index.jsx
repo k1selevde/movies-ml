@@ -23,7 +23,6 @@ const FrequencySend = ({object, type}) => {
         axios.get(`/api/freq/${type}/${curValue}/`)
             .then(res => {
                 setCurrentValue(res.data)
-                // console.log('res frequency :', res)
             })
             .catch((e) => {
                 console.log('freq get:  ', e)
